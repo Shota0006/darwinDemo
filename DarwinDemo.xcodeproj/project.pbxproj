@@ -16,6 +16,11 @@
 			path = DarwinDemo;
 			sourceTree = "<group>";
 		};
+		35CE06692CD2F78A00E90A8E /* HomeViews */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +38,7 @@
 			isa = PBXGroup;
 			children = (
 				35CE06492CD2EC9900E90A8E /* DarwinDemo */,
+				35CE06692CD2F78A00E90A8E /* HomeViews */,
 				35CE06482CD2EC9900E90A8E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +68,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				35CE06492CD2EC9900E90A8E /* DarwinDemo */,
+				35CE06692CD2F78A00E90A8E /* HomeViews */,
 			);
 			name = DarwinDemo;
 			packageProductDependencies = (
