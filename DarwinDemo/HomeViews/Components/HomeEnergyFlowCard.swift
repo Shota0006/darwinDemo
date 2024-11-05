@@ -22,11 +22,11 @@ struct HomeEnergyFlowCardView: View {
                         
                         HStack(alignment: .center){
                             Circle().fill(Color.green)
-                                .frame(width: 12)
+                                .frame(width: 8)
                             Text("Now")
                                 .font(.system(size: 14))
                                 .foregroundColor(.white)
-                        }
+                        }.padding(.leading, 8)
                         Spacer()
                         Image(systemName: "chevron.right")
                             .foregroundColor(.white)

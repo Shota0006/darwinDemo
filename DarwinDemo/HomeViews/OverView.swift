@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  OverView.swift
 //  DarwinDemo
 //
 //  Created by Shota Iwamoto on 2024-10-30.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct OverView: View {
     var body: some View {
         ZStack(alignment: .top){
             Color("PrimaryBackground").edgesIgnoringSafeArea(.all)
@@ -22,5 +22,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    OverView()
 }
