@@ -11,7 +11,7 @@ struct HomeView: View {
     @State var currentTab: Int = 0
     
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack {
             Color("PrimaryBackground").edgesIgnoringSafeArea(.all)
             VStack(spacing: 0) {
                 HStack{
@@ -43,14 +43,14 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
                 .background(Color("PrimaryBackground"))
-
+                
                 TopTabBarView(currentTab: self.$currentTab)
                 
                 TabView(selection: self.$currentTab){
                     OverView().tag(0)
                     DevicesView().tag(1)
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never)) // 内側はページスタイルに
+                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             }
         }
     }

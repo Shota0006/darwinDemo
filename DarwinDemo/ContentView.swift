@@ -13,30 +13,31 @@ struct ContentView: View {
     init() {
         if let backgroundColor = UIColor(named: "PrimaryBackground") {
             UITabBar.appearance().backgroundColor = backgroundColor
+            UITabBar.appearance().unselectedItemTintColor = UIColor.white
+            UITabBar.appearance().tintColor = UIColor.systemGreen
         }
-        UITabBar.appearance().isTranslucent = false
     }
     
     var body: some View {
-        
-        TabView(selection: $selectedTab) {
-            
-            HomeView().tabItem{
-                Image(systemName: "house")
-                Text("Home")
-            }.tag(0)
-            ActivityView().tabItem {
-                Image(systemName: "clock")
-                Text("Activity")
-            }.tag(1)
-            ReportsView().tabItem {
-                Image(systemName: "chart.bar.fill")
-                Text("Reports")
-            }.tag(2)
-            DiscoveryView().tabItem {
-                Image(systemName: "map")
-                Text("Discovery")
-            }.tag(3)
+        NavigationStack {
+            TabView(selection: $selectedTab) {
+                HomeView().tabItem{
+                    Image(systemName: "house")
+                    Text("Home")
+                }.tag(0)
+                ActivityView().tabItem {
+                    Image(systemName: "clock")
+                    Text("Activity")
+                }.tag(1)
+                ReportsView().tabItem {
+                    Image(systemName: "chart.bar.fill")
+                    Text("Reports")
+                }.tag(2)
+                DiscoveryView().tabItem {
+                    Image(systemName: "map")
+                    Text("Discovery")
+                }.tag(3)
+            }
         }
     }
 }

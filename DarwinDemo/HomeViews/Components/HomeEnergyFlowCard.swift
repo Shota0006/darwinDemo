@@ -11,10 +11,7 @@ struct HomeEnergyFlowCardView: View {
     var body: some View {
         VStack{
             VStack {
-                
-                Button(action: {
-                    print("Press Home energy flow")
-                }) {
+                NavigationLink(destination: HomeEnergyFlowView()) {
                     HStack {
                         Text("Home energy flow")
                             .font(.system(size: 18))
@@ -33,7 +30,7 @@ struct HomeEnergyFlowCardView: View {
                             .font(.system(size: 12, weight: .bold))
                     }
                 }
-                
+
                 HStack {
                     SimpleLable(text: "SOLAR", labelColor: Color("PrimaryAccent"))
                     Spacer()
