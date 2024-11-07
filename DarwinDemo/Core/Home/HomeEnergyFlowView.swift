@@ -40,7 +40,7 @@ struct HomeEnergyFlowView: View {
                 .frame(height: 50)
                 
                 ScrollView {
-                    // Top label
+                    // Top label section
                     HStack {
                         HStack {
                             Circle().fill(Color.green).frame(width: 10)
@@ -58,7 +58,7 @@ struct HomeEnergyFlowView: View {
                         .padding(.vertical, 4)
                         .padding(.horizontal, 12)
                         .background(Color("SecondaryBackground"))
-                        .cornerRadius(32)
+                        .clipShape(.capsule)
                     }
                     
                     // Hero Home Image
@@ -68,8 +68,8 @@ struct HomeEnergyFlowView: View {
                     
                     // Label
                     HStack {
-                        SimpleLable(text: "SOLOR", labelColor: .primaryAccent)
-                        SimpleLable(text: "GRID", labelColor: .secondaryAccent)
+                        SimpleLableView(text: "SOLOR", labelColor: .primaryAccent)
+                        SimpleLableView(text: "GRID", labelColor: .secondaryAccent)
                     }
                     
                     Text("Solar powering your home, charging your battery and you are exporting any surplus enegy to the grid")
@@ -79,10 +79,10 @@ struct HomeEnergyFlowView: View {
                         .padding(.horizontal, 30)
                     
                     // Energy Card
-                    HomeEnergyItem(type: .consumption, value: 9.7)
-                    HomeEnergyItem(type: .solar, value: 5.2)
-                    HomeEnergyItem(type: .battery, value: -1.3)
-                    HomeEnergyItem(type: .grid, value: 0.3)
+                    HomeEnergyItemView(type: .consumption, value: 9.7)
+                    HomeEnergyItemView(type: .solar, value: 5.2)
+                    HomeEnergyItemView(type: .battery, value: -1.3)
+                    HomeEnergyItemView(type: .grid, value: 0.3)
                     
                     
                 }

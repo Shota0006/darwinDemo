@@ -1,5 +1,5 @@
 //
-//  HomeEnergyFlowCard.swift
+//  HomeEnergyFlowCardView.swift
 //  DarwinDemo
 //
 //  Created by Shota Iwamoto on 2024-11-01.
@@ -32,7 +32,7 @@ struct HomeEnergyFlowCardView: View {
                 }
 
                 HStack {
-                    SimpleLable(text: "SOLAR", labelColor: Color("PrimaryAccent"))
+                    SimpleLableView(text: "SOLAR", labelColor: Color("PrimaryAccent"))
                     Spacer()
                 }
                 .padding(.top, 12)
@@ -54,7 +54,7 @@ struct HomeEnergyFlowCardView: View {
         }
         .frame(maxWidth: .infinity)
         .background(Color("SecondaryBackground"))
-        .cornerRadius(20)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  BatteryAndSavingCard.swift
+//  BatteryAndSavingCardView.swift
 //  DarwinDemo
 //
 //  Created by Shota Iwamoto on 2024-10-31.
@@ -53,7 +53,7 @@ struct BatteryCardView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .background(Color("SecondaryBackground"))
-        .cornerRadius(20)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
         .shadow(radius: 5)
     }
 }
@@ -89,7 +89,7 @@ struct SavingCardView: View {
         
         .padding()
         .background(Color("SecondaryBackground"))
-        .cornerRadius(20)
+        .clipShape(RoundedRectangle(cornerRadius: 20))
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  HomeEnergyItem.swift
+//  HomeEnergyItemView.swift
 //  DarwinDemo
 //
 //  Created by Shota Iwamoto on 2024-11-05.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeEnergyItem: View {
+struct HomeEnergyItemView: View {
     let type: HomeEnergyType
     let value: Double
     
@@ -15,7 +15,7 @@ struct HomeEnergyItem: View {
         HStack {
             Image(systemName: type.icon)
                 .resizable()
-                .frame(width: 20, height: 18)
+                .frame(width: 18, height: 18)
                 .padding(8)
                 .background(Circle().fill(Color(type.iconColor)))
                 .clipShape(Circle())
@@ -40,7 +40,7 @@ struct HomeEnergyItem: View {
         }
         .padding(20)
         .background(Color("SecondaryBackground"))
-        .cornerRadius(32)
+        .clipShape(RoundedRectangle(cornerRadius: 28))
     }
 }
 
@@ -113,9 +113,9 @@ enum HomeEnergyType: String {
 }
 
 #Preview() {
-    HomeEnergyItem(type: .consumption, value: 9.7)
-    HomeEnergyItem(type: .solar, value: 5.7)
-    HomeEnergyItem(type: .battery, value: -1.3)
-    HomeEnergyItem(type: .grid, value: 0.3)
-    HomeEnergyItem(type: .generator, value: 11.2)
+    HomeEnergyItemView(type: .consumption, value: 9.7)
+    HomeEnergyItemView(type: .solar, value: 5.7)
+    HomeEnergyItemView(type: .battery, value: -1.3)
+    HomeEnergyItemView(type: .grid, value: 0.3)
+    HomeEnergyItemView(type: .generator, value: 11.2)
 }
