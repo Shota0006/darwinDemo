@@ -11,36 +11,91 @@ struct HomeEnergyItemView: View {
     let type: HomeEnergyType
     let value: Double
     
+    @State var isExpanded: Bool = false
+    
     var body: some View {
-        HStack {
-            Image(systemName: type.icon)
-                .resizable()
-                .frame(width: 18, height: 18)
-                .padding(8)
-                .background(Circle().fill(Color(type.iconColor)))
-                .clipShape(Circle())
-                .foregroundColor(.black)
-            VStack(alignment: .leading){
-                Text(type.title)
-                    .foregroundColor(.white)
-                    .font(.title3)
-                Text(type.description)
-                    .foregroundColor(.gray)
+        VStack {
+            
+            HStack {
+                Image(systemName: type.icon)
+                    .resizable()
+                    .frame(width: 18, height: 18)
+                    .padding(8)
+                    .background(Circle().fill(Color(type.iconColor)))
+                    .clipShape(Circle())
+                    .foregroundColor(.black)
+                VStack(alignment: .leading){
+                    Text(type.title)
+                        .foregroundColor(.white)
+                        .font(.title3)
+                    Text(type.description)
+                        .foregroundColor(.gray)
+                }
+                
+                Spacer()
+                
+                HStack(spacing: 4){
+                    Text(String(String(format: "%.1f", value)))
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .bold))
+                    Text("kW")
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .bold))
+                }
+                if(type == .solar || type == .battery) {
+                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                        .foregroundStyle(.white)
+                        .frame(width: 24)
+                } else {
+                    Spacer().frame(width: 30)
+                }
+                
+                
             }
-            Spacer()
-            HStack(spacing: 4){
-                Text(String(String(format: "%.1f", value)))
-                    .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))
-                Text("kW")
-                    .foregroundColor(.white)
-                    .font(.system(size: 20, weight: .bold))
+            
+            if(isExpanded) {
+                
+                VStack(alignment: .leading, spacing: 8) {
+                    ForEach(0 ... 2, id: \.self) { index in
+                        HStack{
+                            Text("PV Link \(index + 1)")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("(2 min ago)")
+                        }
+                        HStack {
+                            Text("Making Power")
+                            Text(" | ")
+                            Text("19.2° C")
+                            Text(" | ")
+                            Text("Lifetime: ")
+                            Text("3.2 MWh")
+                        }
+                        if index != 2 {
+                            Rectangle()
+                                .fill(.gray)
+                                .frame(height: 1)
+                                .padding(.vertical, 12)
+                        }
+                    }
+                }
+                .font(.caption)
+                .foregroundStyle(.white)
+                .padding(.vertical, 10)
             }
-            .padding(.trailing, 40)
         }
         .padding(20)
         .background(Color("SecondaryBackground"))
         .clipShape(RoundedRectangle(cornerRadius: 28))
+        .onTapGesture {
+            if(type == .solar || type == .battery) {
+                withAnimation(.default) {
+                    isExpanded.toggle()
+                }
+            }
+        }
+        
+        
     }
 }
 
@@ -50,7 +105,7 @@ enum HomeEnergyType: String {
     case battery = "Battery"
     case grid = "Grid"
     case generator = "Generator"
-
+    
     var icon: String {
         switch self {
         case .consumption:
