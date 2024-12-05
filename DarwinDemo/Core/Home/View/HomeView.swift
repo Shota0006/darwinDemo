@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var viewModel = HomeViewModel()
     @State var currentTab: Int = 0
     
     var body: some View {
@@ -43,6 +44,13 @@ struct HomeView: View {
                 .padding(.horizontal, 20)
                 .padding(.bottom, 20)
                 .background(Color("PrimaryBackground"))
+                
+                Button(action: {
+                    viewModel.fetchHomeData()
+                    print("Fetch----")
+                }) {
+                    Text("Fetch")
+                }
                 
                 TopTabBarView(currentTab: self.$currentTab)
                 
