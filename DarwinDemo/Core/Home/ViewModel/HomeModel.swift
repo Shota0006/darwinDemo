@@ -15,7 +15,7 @@ class HomeViewModel: ObservableObject {
     
     func fetchHomeData() {
         print("Called fetch home data")
-            networkService.fetchData(from: "https://generac-api-stg.neur.io/live/v1/homes") { result in
+            networkService.fetchData(from: "https://generac-...") { result in
                 DispatchQueue.main.async {
                     switch result {
                     case .success(let jsonResponse):
